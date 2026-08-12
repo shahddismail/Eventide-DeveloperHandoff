@@ -122,13 +122,13 @@ npm install -g pnpm
 Then install project dependencies:
 
 ```bash
-pnpm install
+pnpm install or npm install
 ```
 
 ### 3. Run the dev server
 
 ```bash
-pnpm dev
+pnpm dev or npm run dev
 ```
 
 Open [http://localhost:8443](http://localhost:8443) in your browser. Changes hot-reload instantly.
