@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+/* ─── Semantic Design Tokens ─────────────────────────────────────────── */
+:root {
+  /* Surface */
+  --background:         #F4F3EF;
+  --foreground:         #0C0D11;
+  --card:               #FFFFFF;
+  --card-foreground:    #0C0D11;
+
+  /* Interactive */
+  --primary:            #E8500A;
+  --primary-foreground: #FFFFFF;
+  --secondary:          #EDE9E3;
+  --secondary-foreground:#3A3832;
+
+  /* Subdued */
+  --muted:              #ECEAE4;
+  --muted-foreground:   #7A7670;
+
+  /* Accent */
+  --accent:             #E8500A;
+  --accent-foreground:  #FFFFFF;
+
+  /* Structure */
+  --border:             rgba(12,13,17,0.12);
+  --ring:               #E8500A;
+  --radius:             10px;
+
+  /* Semantic aliases */
+  --text-heading:       #0C0D11;
+  --text-body:          #2E2D2A;
+  --text-subdued:       #7A7670;
+  --text-on-primary:    #FFFFFF;
+
+  --surface-raised:     #FFFFFF;
+  --surface-overlay:    rgba(12,13,17,0.04);
+  --primary-action-bg:  #E8500A;
+  --primary-action-hover: #C93E00;
+
+  --skeleton-base:      #E5E3DC;
+  --skeleton-shine:     #F0EDE7;
+
+  --tag-bg:             #F0EDE7;
+  --tag-fg:             #5C5750;
+
+  --badge-going-bg:     #D4EDDA;
+  --badge-going-fg:     #166534;
+  --badge-sold-bg:      #FEE2E2;
+  --badge-sold-fg:      #991B1B;
+  --badge-free-bg:      #DBEAFE;
+  --badge-free-fg:      #1E40AF;
+}
+
+.dark {
+  /* Surface */
+  --background:         #0C0D11;
+  --foreground:         #F0EDE7;
+  --card:               #16181F;
+  --card-foreground:    #F0EDE7;
+
+  /* Interactive */
+  --primary:            #FF6B2B;
+  --primary-foreground: #FFFFFF;
+  --secondary:          #1E2028;
+  --secondary-foreground:#C8C4BC;
+
+  /* Subdued */
+  --muted:              #1A1C23;
+  --muted-foreground:   #6E6B63;
+
+  /* Accent */
+  --accent:             #FF6B2B;
+  --accent-foreground:  #FFFFFF;
+
+  /* Structure */
+  --border:             rgba(240,237,231,0.10);
+  --ring:               #FF6B2B;
+  --radius:             10px;
+
+  /* Semantic aliases */
+  --text-heading:       #F0EDE7;
+  --text-body:          #C8C4BC;
+  --text-subdued:       #6E6B63;
+  --text-on-primary:    #FFFFFF;
+
+  --surface-raised:     #1E2028;
+  --surface-overlay:    rgba(240,237,231,0.04);
+  --primary-action-bg:  #FF6B2B;
+  --primary-action-hover:#E8500A;
+
+  --skeleton-base:      #1E2028;
+  --skeleton-shine:     #252830;
+
+  --tag-bg:             #1E2028;
+  --tag-fg:             #9E9A93;
+
+  --badge-going-bg:     #052e16;
+  --badge-going-fg:     #86efac;
+  --badge-sold-bg:      #450a0a;
+  --badge-sold-fg:      #fca5a5;
+  --badge-free-bg:      #172554;
+  --badge-free-fg:      #93c5fd;
+}
+
+/* ─── Tailwind Token Mappings ─────────────────────────────────────────── */
+@theme inline {
+  --color-background:           var(--background);
+  --color-foreground:           var(--foreground);
+  --color-card:                 var(--card);
+  --color-card-foreground:      var(--card-foreground);
+  --color-primary:              var(--primary);
+  --color-primary-foreground:   var(--primary-foreground);
+  --color-secondary:            var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted:                var(--muted);
+  --color-muted-foreground:     var(--muted-foreground);
+  --color-accent:               var(--accent);
+  --color-accent-foreground:    var(--accent-foreground);
+  --color-border:               var(--border);
+  --color-ring:                 var(--ring);
+  --radius-DEFAULT:             var(--radius);
+  --font-sans:                  'Outfit', system-ui, sans-serif;
+  --font-mono:                  'JetBrains Mono', monospace;
+}
+
+/* ─── Base ────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-family: 'Outfit', system-ui, sans-serif; }
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Skeleton animation ──────────────────────────────────────────────── */
+@keyframes skeleton-shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 25%,
+    var(--skeleton-shine) 50%,
+    var(--skeleton-base) 75%
+  );
+  background-size: 800px 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--muted-foreground); }
+
+/* ─── Transitions ─────────────────────────────────────────────────────── */
+.transition-theme {
+  transition: background-color 0.25s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* ─── Accessibility: visually-hidden (screen-reader only) text ──────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ─── Accessibility: respect OS-level reduced motion preference ─────────
+   WCAG 2.3.3 (AAA, best-practice for AA products): non-essential motion
+   should be reducible. Shortens/removes hover, shimmer, and scale motion. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
