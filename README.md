@@ -1,4 +1,4 @@
-﻿# Eventide â€” Scalable Events App with Design Token System
+﻿# Eventide Scalable Events App with Design Token System
 
 A fully token-driven Events App built with React, Vite, and Tailwind CSS v4. Designed for rebrandability â€” swap the token values in one file and the entire UI updates across Light and Dark mode instantly.
 
@@ -37,7 +37,7 @@ Organisms
 
 ### Semantic Design Tokens
 
-All colors are referenced as CSS custom properties â€” **no raw hex codes in component code**.
+All colors are referenced as CSS custom properties ” **no raw hex codes in component code**.
 
 | Token | Role |
 |---|---|
