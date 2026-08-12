@@ -106,7 +106,9 @@ vite.config.ts   # Vite + Tailwind v4 + React plugin
 
 ```bash
 git clone https://github.com/shahddismail/Eventide-DeveloperHandoff.git
-cd Eventide-DeveloperHandoff
+cd "Eventide-Task10-DeveloperHandoff"
+cd "Eventide-handoff"
+cd "Design Event Details Screens"
 ```
 
 ### 2. Install dependencies
