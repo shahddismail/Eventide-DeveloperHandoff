@@ -1,14 +1,14 @@
-﻿# Eventide â€” Scalable Events App with Design Token System
+# Eventide — Scalable Events App with Design Token System
 
-A fully token-driven Events App built with React, Vite, and Tailwind CSS v4. Designed for rebrandability â€” swap the token values in one file and the entire UI updates across Light and Dark mode instantly.
+A fully token-driven Events App built with React, Vite, and Tailwind CSS v4. Designed for rebrandability — swap the token values in one file and the entire UI updates across Light and Dark mode instantly.
 
 ## Live Features
 
-- **Event Listing Screen** â€” searchable, filterable grid with category pills and view mode switcher (Grid / Compact / List)
-- **Event Details Screen** â€” full hero, meta grid, attendee capacity bar, sticky ticket purchase panel, and related events sidebar
-- **Light / Dark Mode** â€” one toggle, zero hardcoded hex values anywhere in component code
-- **Skeleton Loader** â€” shimmer animation for every card variant while data is fetching
-- **Card Component** â€” three variants: Medium (grid), Small (compact), List View
+- **Event Listing Screen** — searchable, filterable grid with category pills and view mode switcher (Grid / Compact / List)
+- **Event Details Screen** — full hero, meta grid, attendee capacity bar, sticky ticket purchase panel, and related events sidebar
+- **Light / Dark Mode** — one toggle, zero hardcoded hex values anywhere in component code
+- **Skeleton Loader** — shimmer animation for every card variant while data is fetching
+- **Card Component** — three variants: Medium (grid), Small (compact), List View
 
 ---
 
@@ -18,7 +18,7 @@ A fully token-driven Events App built with React, Vite, and Tailwind CSS v4. Des
 
 ```
 Atoms
-  Button        (primary / secondary / ghost) Ã— (sm / md / lg)
+  Button        (primary / secondary / ghost) × (sm / md / lg)
   Badge         going | sold-out | free | paid | featured
   Tag           category label
   Avatar        image or initials fallback
@@ -37,7 +37,7 @@ Organisms
 
 ### Semantic Design Tokens
 
-All colors are referenced as CSS custom properties â€” **no raw hex codes in component code**.
+All colors are referenced as CSS custom properties — **no raw hex codes in component code**.
 
 | Token | Role |
 |---|---|
@@ -61,13 +61,13 @@ Tokens are defined in `src/index.css` under `:root` (light) and `.dark` (dark). 
 
 ## Skeleton Loader
 
-Each card variant has a matching skeleton that mirrors the real card's layout â€” same image height, same text block positions â€” preventing layout shift on load.
+Each card variant has a matching skeleton that mirrors the real card's layout — same image height, same text block positions — preventing layout shift on load.
 
 ```
 EventCard  loading={true}
-  â”œâ”€â”€ variant="medium"  â†’  image rect + date + title + tags + CTA
-  â”œâ”€â”€ variant="small"   â†’  image rect + title + two tag pills
-  â””â”€â”€ variant="list"    â†’  thumbnail + three text lines + button
+  ├── variant="medium"  →  image rect + date + title + tags + CTA
+  ├── variant="small"   →  image rect + title + two tag pills
+  └── variant="list"    →  thumbnail + three text lines + button
 ```
 
 The shimmer is a CSS gradient animation driven by `--skeleton-base` and `--skeleton-shine` tokens, so it automatically respects dark mode. Trigger it via the **Replay** button or by switching category filters.
@@ -91,7 +91,7 @@ The shimmer is a CSS gradient animation driven by `--skeleton-base` and `--skele
 
 ```
 src/
-  App.tsx        # All components: atoms â†’ molecules â†’ organisms â†’ screens
+  App.tsx        # All components: atoms → molecules → organisms → screens
   index.css      # Design tokens (:root + .dark) + Tailwind import + skeleton animation
   main.tsx       # React entrypoint
 index.html       # Vite HTML shell
@@ -105,10 +105,8 @@ vite.config.ts   # Vite + Tailwind v4 + React plugin
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/shahddismail/Eventide-DeveloperHandoff.git
-cd "Eventide-Task10-DeveloperHandoff"
-cd "Eventide-handoff"
-cd "Design Event Details Screens"
+git clone https://github.com/shahddismail/Eventide.git
+cd Eventide
 ```
 
 ### 2. Install dependencies
@@ -123,16 +121,12 @@ Then install project dependencies:
 
 ```bash
 pnpm install
-(or 
-pm install if you're not using pnpm)
 ```
 
 ### 3. Run the dev server
 
 ```bash
 pnpm dev
-(or 
-pm run dev)
 ```
 
 Open [http://localhost:8443](http://localhost:8443) in your browser. Changes hot-reload instantly.
@@ -199,17 +193,17 @@ Because every color is a semantic token, a rebrand is a single-file edit:
 
 1. Open `src/index.css`
 2. Update the values in `:root` (light theme) and `.dark` (dark theme)
-3. Done â€” no component files need to change
+3. Done — no component files need to change
 
 ---
 
 ## Screenshots
 
-| Listing â€” Light | Listing â€” Dark |
+| Listing — Light | Listing — Dark |
 |---|---|
 | Grid, Compact, and List card variants | Same layout, tokens swap automatically |
 
-| Details â€” Light | Skeleton Loader |
+| Details — Light | Skeleton Loader |
 |---|---|
 | Sticky ticket panel + related events | Shimmer state while data fetches |
 
@@ -217,9 +211,8 @@ Because every color is a semantic token, a rebrand is a single-file edit:
 
 ## Developer Handoff & Accessibility Audit
 
-This repo includes a full **developer handoff package** in [`/docs/developer-handoff`](./docs/developer-handoff/README.md): spacing/animation annotations, a computed WCAG 2.1 AA color-contrast report, a keyboard focus-order walkthrough, a full accessibility audit, and a user story for the search/filter logic. Several accessibility fixes (keyboard-operable cards, ARIA labels, landmarks, reduced-motion support) have already been applied to `src/App.tsx` and `src/index.css` â€” see the [changelog](./docs/developer-handoff/CHANGELOG-accessibility-fixes.md) for the full list.
+This repo includes a full **developer handoff package** in [`/docs/developer-handoff`](./docs/developer-handoff/README.md): spacing/animation annotations, a computed WCAG 2.1 AA color-contrast report, a keyboard focus-order walkthrough, a full accessibility audit, and a user story for the search/filter logic. Several accessibility fixes (keyboard-operable cards, ARIA labels, landmarks, reduced-motion support) have already been applied to `src/App.tsx` and `src/index.css` — see the [changelog](./docs/developer-handoff/CHANGELOG-accessibility-fixes.md) for the full list.
 
 ## License
 
 MIT
-
