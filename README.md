@@ -124,7 +124,7 @@ Then install project dependencies:
 ```bash
 pnpm install
 (or 
-pm install if you're not using pnpm)
+npm install if you're not using pnpm)
 ```
 
 ### 3. Run the dev server
@@ -132,7 +132,7 @@ pm install if you're not using pnpm)
 ```bash
 pnpm dev
 (or 
-pm run dev)
+npm run dev)
 ```
 
 Open [http://localhost:8443](http://localhost:8443) in your browser. Changes hot-reload instantly.
